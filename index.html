@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linux, Git &amp; Your Career</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 · Title -->
+    <section class="slide title-slide">
+      <p class="eyebrow">Introduction</p>
+      <h1>Linux, Git <span class="accent">&amp; Your Career</span></h1>
+      <p class="lead">The tools you'll use every day, and how to turn them into a path.</p>
+      <p class="hint">Press <kbd>→</kbd> to begin</p>
+    </section>
+
+    <!-- 2 · Agenda -->
+    <section class="slide">
+      <p class="eyebrow">Today</p>
+      <h2>What we'll cover</h2>
+      <div class="cards three">
+        <div class="card"><span class="num">01</span><h3>Linux</h3><p>What it is, why it matters, and the commands to get moving.</p></div>
+        <div class="card"><span class="num">02</span><h3>Git</h3><p>Track your work, undo mistakes, and collaborate with others.</p></div>
+        <div class="card"><span class="num">03</span><h3>Career</h3><p>Paths in tech, skills to build, and how to get noticed.</p></div>
+      </div>
+    </section>
+
+    <!-- 3 · Section: Linux -->
+    <section class="slide section-slide">
+      <p class="eyebrow">Part 1</p>
+      <h1>Linux</h1>
+      <p class="lead">The operating system behind most of the internet.</p>
+    </section>
+
+    <!-- 4 · What is Linux -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>What is Linux?</h2>
+      <ul class="points">
+        <li>An <strong>open-source</strong> operating system kernel, created by Linus Torvalds in 1991</li>
+        <li>A <strong>distribution</strong> (distro) bundles the kernel with tools, a desktop and a package manager</li>
+        <li>Free to use, inspect, modify and share</li>
+        <li>Built around the <strong>command line</strong>: small tools that do one thing well</li>
+      </ul>
+    </section>
+
+    <!-- 5 · Why it matters -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>Why it matters</h2>
+      <div class="cards four">
+        <div class="card"><h3>Servers</h3><p>The majority of web servers run Linux.</p></div>
+        <div class="card"><h3>Cloud</h3><p>AWS, Azure and GCP machines are mostly Linux.</p></div>
+        <div class="card"><h3>Containers</h3><p>Docker and Kubernetes are built on Linux features.</p></div>
+        <div class="card"><h3>Everywhere</h3><p>Android, routers, smart TVs, supercomputers.</p></div>
+      </div>
+    </section>
+
+    <!-- 6 · Distros -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>Choosing a distro</h2>
+      <div class="cards four">
+        <div class="card"><h3>Ubuntu</h3><p>Friendly and well documented. Best starting point.</p></div>
+        <div class="card"><h3>Debian</h3><p>Stable and conservative. Common on servers.</p></div>
+        <div class="card"><h3>Fedora</h3><p>Modern packages, backed by Red Hat.</p></div>
+        <div class="card"><h3>Arch</h3><p>Minimal and hands-on. Learn by building.</p></div>
+      </div>
+      <p class="note">Tip: you can try Linux on Windows with WSL, or on any OS with a virtual machine.</p>
+    </section>
+
+    <!-- 7 · Filesystem -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>Everything is a file</h2>
+      <div class="split">
+        <pre class="term"><span class="c"># one tree, starting at /</span>
+/
+├── home/    <span class="c"># your files</span>
+├── etc/     <span class="c"># configuration</span>
+├── var/     <span class="c"># logs, changing data</span>
+├── usr/     <span class="c"># installed programs</span>
+├── bin/     <span class="c"># essential commands</span>
+├── tmp/     <span class="c"># temporary files</span>
+└── dev/     <span class="c"># devices as files</span></pre>
+        <ul class="points compact">
+          <li>No drive letters, just one tree</li>
+          <li><code>~</code> is your home folder</li>
+          <li>Paths are case-sensitive</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8 · Commands -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>Commands to learn first</h2>
+      <pre class="term"><span class="p">$</span> pwd                  <span class="c"># where am I?</span>
+<span class="p">$</span> ls -la               <span class="c"># list files, including hidden</span>
+<span class="p">$</span> cd projects          <span class="c"># move into a folder</span>
+<span class="p">$</span> mkdir notes          <span class="c"># create a folder</span>
+<span class="p">$</span> touch todo.txt       <span class="c"># create an empty file</span>
+<span class="p">$</span> cp a.txt b.txt       <span class="c"># copy</span>
+<span class="p">$</span> mv b.txt docs/       <span class="c"># move or rename</span>
+<span class="p">$</span> rm todo.txt         <span class="c"># delete (no recycle bin!)</span>
+<span class="p">$</span> man ls              <span class="c"># read the manual</span></pre>
+    </section>
+
+    <!-- 9 · Pipes & perms -->
+    <section class="slide">
+      <p class="eyebrow">Linux</p>
+      <h2>Power moves</h2>
+      <div class="split">
+        <div>
+          <h3>Pipes &amp; search</h3>
+          <pre class="term"><span class="p">$</span> cat app.log | grep ERROR
+<span class="p">$</span> ls | wc -l
+<span class="p">$</span> history | tail
+<span class="p">$</span> find . -name "*.js"</pre>
+        </div>
+        <div>
+          <h3>Permissions</h3>
+          <pre class="term"><span class="p">$</span> ls -l script.sh
+<span class="o">-rwxr-xr--</span> 1 you staff script.sh
+<span class="p">$</span> chmod +x script.sh
+<span class="p">$</span> sudo apt update</pre>
+          <p class="note">r = read, w = write, x = execute, for owner, group, others.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · Section: Git -->
+    <section class="slide section-slide">
+      <p class="eyebrow">Part 2</p>
+      <h1>Git</h1>
+      <p class="lead">A time machine and a collaboration tool for your code.</p>
+    </section>
+
+    <!-- 11 · What is Git -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>Why use version control?</h2>
+      <ul class="points">
+        <li>Save <strong>snapshots</strong> (commits) of your project at any point</li>
+        <li>Go back to any earlier version when something breaks</li>
+        <li>Try ideas safely on <strong>branches</strong></li>
+        <li>Work with others without overwriting each other</li>
+        <li>No more <code>final_v2_REAL_final.zip</code></li>
+      </ul>
+    </section>
+
+    <!-- 12 · Git vs GitHub -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>Git is not GitHub</h2>
+      <div class="cards two">
+        <div class="card"><h3>Git</h3><p>The tool. Runs on your machine, tracks changes locally. Works offline.</p></div>
+        <div class="card"><h3>GitHub</h3><p>A website that hosts Git repositories, adds pull requests, issues and Pages. GitLab and Bitbucket are alternatives.</p></div>
+      </div>
+    </section>
+
+    <!-- 13 · Workflow -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>The basic flow</h2>
+      <div class="flow">
+        <div class="step"><h3>Working folder</h3><p>Where you edit files</p></div>
+        <div class="arrow">→<small>git add</small></div>
+        <div class="step"><h3>Staging area</h3><p>What goes in the next commit</p></div>
+        <div class="arrow">→<small>git commit</small></div>
+        <div class="step"><h3>Local repo</h3><p>Your saved history</p></div>
+        <div class="arrow">→<small>git push</small></div>
+        <div class="step"><h3>Remote</h3><p>GitHub</p></div>
+      </div>
+    </section>
+
+    <!-- 14 · First commands -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>Your first repository</h2>
+      <pre class="term"><span class="p">$</span> git init                         <span class="c"># start tracking this folder</span>
+<span class="p">$</span> git status                       <span class="c"># what changed?</span>
+<span class="p">$</span> git add index.html               <span class="c"># stage a file</span>
+<span class="p">$</span> git commit -m "Add home page"    <span class="c"># save a snapshot</span>
+<span class="p">$</span> git log --oneline                <span class="c"># view history</span>
+<span class="p">$</span> git remote add origin &lt;url&gt;      <span class="c"># connect to GitHub</span>
+<span class="p">$</span> git push -u origin main          <span class="c"># upload</span></pre>
+    </section>
+
+    <!-- 15 · Branching -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>Branches</h2>
+      <div class="split">
+        <pre class="term"><span class="p">$</span> git switch -c feature/login
+<span class="c"># ...edit, add, commit...</span>
+<span class="p">$</span> git switch main
+<span class="p">$</span> git merge feature/login
+<span class="p">$</span> git branch -d feature/login</pre>
+        <ul class="points compact">
+          <li>A branch is a cheap, movable pointer</li>
+          <li>Keep <code>main</code> working</li>
+          <li>Open a <strong>pull request</strong> to review before merging</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 16 · Good habits -->
+    <section class="slide">
+      <p class="eyebrow">Git</p>
+      <h2>Habits that help</h2>
+      <div class="cards three">
+        <div class="card"><h3>Small commits</h3><p>One idea per commit. Easier to review and to undo.</p></div>
+        <div class="card"><h3>Clear messages</h3><p>"Fix login redirect" beats "stuff".</p></div>
+        <div class="card"><h3>Use .gitignore</h3><p>Never commit secrets, passwords or <code>node_modules</code>.</p></div>
+      </div>
+    </section>
+
+    <!-- 17 · Section: Career -->
+    <section class="slide section-slide">
+      <p class="eyebrow">Part 3</p>
+      <h1>Career</h1>
+      <p class="lead">Turning skills into direction.</p>
+    </section>
+
+    <!-- 18 · Paths -->
+    <section class="slide">
+      <p class="eyebrow">Career</p>
+      <h2>Paths where Linux &amp; Git show up</h2>
+      <div class="cards three">
+        <div class="card"><h3>Software Developer</h3><p>Build web, mobile and backend products.</p></div>
+        <div class="card"><h3>DevOps / Cloud</h3><p>Automate deployment, infrastructure and reliability.</p></div>
+        <div class="card"><h3>Cybersecurity</h3><p>Defend systems, test for weaknesses.</p></div>
+        <div class="card"><h3>Data / AI</h3><p>Analyse data, train and ship models.</p></div>
+        <div class="card"><h3>SysAdmin / Network</h3><p>Keep servers and networks healthy.</p></div>
+        <div class="card"><h3>Open Source</h3><p>Contribute publicly and learn from experts.</p></div>
+      </div>
+    </section>
+
+    <!-- 19 · Roadmap -->
+    <section class="slide">
+      <p class="eyebrow">Career</p>
+      <h2>A simple roadmap</h2>
+      <ol class="timeline">
+        <li><strong>Foundations</strong><span>Linux basics, Git, one programming language</span></li>
+        <li><strong>Build</strong><span>Small projects that solve real problems</span></li>
+        <li><strong>Specialise</strong><span>Pick a path and go deeper</span></li>
+        <li><strong>Share</strong><span>Portfolio, writing, open-source contributions</span></li>
+        <li><strong>Apply</strong><span>Internships, junior roles, freelance</span></li>
+      </ol>
+    </section>
+
+    <!-- 20 · Show your work -->
+    <section class="slide">
+      <p class="eyebrow">Career</p>
+      <h2>Show your work</h2>
+      <ul class="points">
+        <li>Your <strong>GitHub profile</strong> is a living resume: keep it tidy</li>
+        <li>Write a good README for every project</li>
+        <li>Host a portfolio on <strong>GitHub Pages</strong> (like this deck!)</li>
+        <li>Document what you learn. Teaching is the best revision</li>
+      </ul>
+    </section>
+
+    <!-- 21 · Advice -->
+    <section class="slide">
+      <p class="eyebrow">Career</p>
+      <h2>Advice to keep</h2>
+      <div class="cards two">
+        <div class="card"><h3>Be consistent</h3><p>An hour a day beats a weekend sprint.</p></div>
+        <div class="card"><h3>Build, don't just watch</h3><p>Tutorials teach; projects make it stick.</p></div>
+        <div class="card"><h3>Ask good questions</h3><p>Share what you tried, the error, and what you expected.</p></div>
+        <div class="card"><h3>Find your people</h3><p>Communities, meetups and mentors speed everything up.</p></div>
+      </div>
+    </section>
+
+    <!-- 22 · End -->
+    <section class="slide title-slide">
+      <p class="eyebrow">Wrap up</p>
+      <h1>Questions? <span class="accent">Let's talk.</span></h1>
+      <p class="lead">Open a terminal, make a repo, and commit something today.</p>
+      <pre class="term small"><span class="p">$</span> git commit -m "Start my journey"</pre>
+    </section>
+
+  </main>
+
+  <footer class="hud">
+    <button id="prev" aria-label="Previous slide">←</button>
+    <span id="count">1 / 1</span>
+    <button id="next" aria-label="Next slide">→</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
