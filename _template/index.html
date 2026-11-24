@@ -1,0 +1,34 @@
+<!doctype html>
+<!-- Copy this folder to linux/01-name/ or git/01-name/. Paths assume 2 levels deep. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Module title</title>
+    <link rel="stylesheet" href="../../shared/style.css" />
+  </head>
+  <body>
+    <div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+    <main class="deck" id="deck">
+      <section class="slide title-slide">
+        <p class="eyebrow">Linux · Module 01</p>
+        <h1>Module title</h1>
+        <p class="hint">Press <kbd>→</kbd> to begin</p>
+      </section>
+
+      <section class="slide">
+        <h2>First slide</h2>
+        <!-- images: <img src="../../shared/assets/linux.svg" alt="" /> -->
+      </section>
+    </main>
+
+    <footer class="hud">
+      <button id="prev" aria-label="Previous slide">←</button>
+      <span id="count">1 / 1</span>
+      <button id="next" aria-label="Next slide">→</button>
+    </footer>
+
+    <script src="../../shared/deck.js"></script>
+  </body>
+</html>

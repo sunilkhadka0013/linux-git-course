@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Understanding version control</title>
+    <link rel="stylesheet" href="../../shared/style.css" />
+  </head>
+  <body>
+    <div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+    <main class="deck" id="deck">
+      <!-- Title -->
+      <section class="slide title-slide">
+        <p class="eyebrow">Git · Module 01</p>
+        <h1>Understanding <span class="accent">version control</span></h1>
+        <p class="lead">Why every project needs a history, and where Git fits in.</p>
+        <p class="hint">Press <kbd>→</kbd> to begin</p>
+      </section>
+
+      <!-- What is version control -->
+      <section class="slide">
+        <p class="eyebrow">Version control</p>
+        <h2>What is version control?</h2>
+        <p class="lead">A system that records changes to files over time.</p>
+        <ul class="points">
+          <li><strong>Remembers</strong> every change, who made it and when</li>
+          <li><strong>Restores</strong> any earlier version when you need it</li>
+          <li><strong>Compares</strong> two versions to see exactly what changed</li>
+        </ul>
+      </section>
+
+      <!-- Without it -->
+      <section class="slide">
+        <p class="eyebrow">Version control</p>
+        <h2>Life without it</h2>
+        <div class="split">
+          <pre class="term">report.doc
+report_final.doc
+report_final_v2.doc
+report_final_v2_REAL.doc
+report_final_v2_REAL_fixed.doc</pre>
+          <ul class="points compact">
+            <li>Which file is the latest?</li>
+            <li>What changed between them?</li>
+            <li>Who changed it, and why?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Why developers need it -->
+      <section class="slide">
+        <p class="eyebrow">Version control</p>
+        <h2>Why do developers need it?</h2>
+        <div class="cards four">
+          <div class="card">
+            <h3>History</h3>
+            <p>Go back to any point when something breaks.</p>
+          </div>
+          <div class="card">
+            <h3>Teamwork</h3>
+            <p>Many people work on the same code at once.</p>
+          </div>
+          <div class="card">
+            <h3>Safe experiments</h3>
+            <p>Try ideas without risking the working version.</p>
+          </div>
+          <div class="card">
+            <h3>Accountability</h3>
+            <p>Every change has an author and a reason.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problems Git solves -->
+      <section class="slide">
+        <p class="eyebrow">Git</p>
+        <h2>Problems Git solves</h2>
+        <table class="spec">
+          <thead>
+            <tr><th>Problem</th><th>How Git helps</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>Lost or overwritten work</th><td>Every saved snapshot stays in history</td></tr>
+            <tr><th>"It worked yesterday"</th><td>Compare versions and roll back</td></tr>
+            <tr><th>Two people edit the same file</th><td>Changes are merged, conflicts are flagged</td></tr>
+            <tr><th>Risky new features</th><td>Branches keep experiments separate</td></tr>
+            <tr><th>Working offline</th><td>Full history lives on your computer</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- What is Git -->
+      <section class="slide">
+        <p class="eyebrow">Git</p>
+        <h2>What is Git?</h2>
+        <div class="split">
+          <ul class="points">
+            <li>A free, open-source version control system</li>
+            <li>Created by <strong>Linus Torvalds</strong> in 2005 for the Linux kernel</li>
+            <li>Runs locally, with no server required</li>
+            <li>Fast, and built to handle huge projects</li>
+          </ul>
+          <div>
+            <img src="../../shared/assets/git.svg" alt="Git logo" style="width:8rem;height:8rem" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Git vs GitHub -->
+      <section class="slide">
+        <p class="eyebrow">Git</p>
+        <h2>Git vs GitHub</h2>
+        <div class="split">
+          <div>
+            <div class="head">
+              <img src="../../shared/assets/git.svg" alt="Git logo" style="width:3rem;height:3rem" />
+              <h3>Git</h3>
+            </div>
+            <ul class="points compact">
+              <li>A tool on your computer</li>
+              <li>Tracks changes to your files</li>
+              <li>Works without internet</li>
+            </ul>
+          </div>
+          <div>
+            <div class="head">
+              <img src="../../shared/assets/github.svg" alt="GitHub logo" style="width:3rem;height:3rem" />
+              <h3>GitHub</h3>
+            </div>
+            <ul class="points compact">
+              <li>A website that hosts Git repositories</li>
+              <li>Adds sharing, reviews and issues</li>
+              <li>Alternatives: GitLab, Bitbucket</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Git is the tool. GitHub is a place to put what the tool tracks.</p>
+      </section>
+
+      <!-- Centralized -->
+      <section class="slide">
+        <p class="eyebrow">Types of version control</p>
+        <h2>Centralized</h2>
+        <div class="flow short">
+          <div class="step">
+            <h3>Developers</h3>
+            <p>Hold only the files they are working on</p>
+          </div>
+          <div class="arrow">⇄<small>every action</small></div>
+          <div class="step">
+            <h3>Central server</h3>
+            <p>The single home of the full history</p>
+          </div>
+        </div>
+        <ul class="points compact">
+          <li>Examples: SVN, CVS, Perforce</li>
+          <li>If the server is down, nobody can save history</li>
+        </ul>
+      </section>
+
+      <!-- Distributed -->
+      <section class="slide">
+        <p class="eyebrow">Types of version control</p>
+        <h2>Distributed</h2>
+        <div class="flow short">
+          <div class="step">
+            <h3>Every developer</h3>
+            <p>Has a full copy of the project and its history</p>
+          </div>
+          <div class="arrow">⇄<small>push / pull</small></div>
+          <div class="step">
+            <h3>Shared remote</h3>
+            <p>A common place to exchange changes, such as GitHub</p>
+          </div>
+        </div>
+        <ul class="points compact">
+          <li>Examples: Git, Mercurial</li>
+          <li>Work and commit offline; a lost copy can be restored from any other</li>
+        </ul>
+      </section>
+
+      <!-- Comparison -->
+      <section class="slide">
+        <p class="eyebrow">Types of version control</p>
+        <h2>Centralized vs distributed</h2>
+        <table class="spec">
+          <thead>
+            <tr><th></th><th>Centralized</th><th>Distributed</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>History lives</th><td>On one server</td><td>On every computer</td></tr>
+            <tr><th>Offline work</th><td>Limited</td><td>Full</td></tr>
+            <tr><th>Single point of failure</th><td>Yes</td><td>No</td></tr>
+            <tr><th>Speed</th><td>Network for most actions</td><td>Most actions are local</td></tr>
+            <tr><th>Example</th><td>SVN</td><td>Git</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Recap -->
+      <section class="slide">
+        <p class="eyebrow">Recap</p>
+        <h2>Key takeaways</h2>
+        <ul class="points">
+          <li>Version control records the history of your files</li>
+          <li>Git is a distributed version control system</li>
+          <li>GitHub hosts Git repositories online</li>
+          <li><strong>Next:</strong> Module 02, Getting started with Git</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="hud">
+      <button id="prev" aria-label="Previous slide">←</button>
+      <span id="count">1 / 1</span>
+      <button id="next" aria-label="Next slide">→</button>
+    </footer>
+
+    <script src="../../shared/deck.js"></script>
+  </body>
+</html>

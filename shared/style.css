@@ -284,3 +284,6 @@ code {
 .chip { background: var(--paper); border-radius: 50%; width: 2.8rem; height: 2.8rem; display: grid; place-items: center; }
 .chip img { width: 1.6rem; height: 1.6rem; }
 @media (max-width: 800px) { .fields { grid-template-columns: repeat(3, 1fr); } .base-note { margin-left: 0; } }
+
+.split .head { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
+.split .head h3 { margin: 0; }
