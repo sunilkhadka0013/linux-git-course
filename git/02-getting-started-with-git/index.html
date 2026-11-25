@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Getting started with Git</title>
+    <link rel="stylesheet" href="../../shared/style.css" />
+  </head>
+  <body>
+    <div class="progress"><div class="progress-bar" id="bar"></div></div>
+    <a class="deck-back" href="../">← Back to modules</a>
+
+    <main class="deck" id="deck">
+      <!-- Title -->
+      <section class="slide title-slide">
+        <p class="eyebrow">Git · Module 02</p>
+        <h1>Getting started with <span class="accent">Git</span></h1>
+        <p class="lead">From installing Git to your first commits.</p>
+        <p class="hint">Press <kbd>→</kbd> to begin</p>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="slide">
+        <p class="eyebrow">Overview</p>
+        <h2>What we will do</h2>
+        <ol class="timeline">
+          <li>
+            <strong>Set up</strong><span>Install and configure Git</span>
+          </li>
+          <li>
+            <strong>Create</strong
+            ><span>Understand repositories and start one</span>
+          </li>
+          <li>
+            <strong>Save</strong><span>Check, stage and commit changes</span>
+          </li>
+          <li>
+            <strong>Manage</strong><span>Remove and rename tracked files</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Installing -->
+      <section class="slide">
+        <p class="eyebrow">Setup</p>
+        <h2>Installing Git</h2>
+        <ul class="points compact install">
+          <li>
+            <strong>Windows</strong>
+            <a
+              href="https://git-scm.com/downloads/win"
+              target="_blank"
+              rel="noopener"
+              >git-scm.com/downloads/win</a
+            >
+          </li>
+          <li>
+            <strong>macOS</strong>
+            <code>brew install git</code>
+          </li>
+          <li>
+            <strong>Ubuntu / Debian</strong>
+            <code>sudo apt install git</code>
+          </li>
+          <li>
+            <strong>Fedora</strong>
+            <code>sudo dnf install git</code>
+          </li>
+        </ul>
+        <p>Check that it worked:</p>
+        <pre class="term">
+<span class="p">$</span> git --version
+<span class="c">git version 2.47.1   # your number may differ</span></pre>
+      </section>
+
+      <!-- Configuring -->
+      <section class="slide">
+        <p class="eyebrow">Setup</p>
+        <h2>Tell Git who you are</h2>
+        <p class="lead"><code>git config</code> changes Git's settings.</p>
+        <pre class="term">
+<span class="p">$</span> git config --global user.name "John Doe"
+<span class="p">$</span> git config --global user.email "johndoe@example.com"
+<span class="p">$</span> git config --global init.defaultBranch main  <span class="c"># first branch name</span></pre>
+        <ul class="points compact">
+          <li>
+            Your name and email are saved inside <strong>every commit</strong>,
+            so everyone can see who made each change
+          </li>
+          <li>
+            With <code>--global</code>, you set them once for all your
+            repositories
+          </li>
+          <li>Use your GitHub email, so commits link to you</li>
+        </ul>
+      </section>
+
+      <!-- With and without setup -->
+      <section class="slide">
+        <p class="eyebrow">Setup</p>
+        <h2>With and without setup</h2>
+        <div class="split">
+          <div>
+            <h3>Without setup</h3>
+            <pre class="term">
+<span class="p">$</span> git commit -m "Add README"
+<span class="o">Author identity unknown
+*** Please tell me who you are.</span></pre>
+            <p class="note">
+              The commit fails. On some computers, Git instead guesses, and
+              saves something like <code>johndoe@Johns-Laptop.local</code>.
+            </p>
+          </div>
+          <div>
+            <h3>With setup</h3>
+            <pre class="term">
+<span class="p">$</span> git commit -m "Add README"
+<span class="p">$</span> git log -1
+<span class="c">Author: John Doe &lt;johndoe@example.com&gt;</span></pre>
+            <p class="note">
+              The commit is saved with your name and email (log output
+              shortened).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Config levels -->
+      <section class="slide">
+        <p class="eyebrow">Setup</p>
+        <h2>Checking your configuration</h2>
+        <pre class="term">
+<span class="p">$</span> git config --list        <span class="c"># every setting</span>
+<span class="p">$</span> git config user.name     <span class="c"># one setting</span></pre>
+        <table class="spec">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>Applies to</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><code>--system</code></th>
+              <td>Every user on the computer</td>
+            </tr>
+            <tr>
+              <th><code>--global</code></th>
+              <td>All your repositories</td>
+            </tr>
+            <tr>
+              <th><code>--local</code></th>
+              <td>Only the current repository</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">The closer level wins: local overrides global, global overrides system.</p>
+      </section>
+
+      <!-- Repositories -->
+      <section class="slide">
+        <p class="eyebrow">Repositories</p>
+        <h2>What is a Git repository?</h2>
+        <p class="lead">A project folder whose history Git is tracking.</p>
+        <div class="split">
+          <pre class="term">
+my-project/
+├── .git/        <span class="c">← history and settings</span>
+├── README.md    <span class="c">← your files</span>
+└── notes.txt</pre>
+          <ul class="points compact">
+            <li>Git stores everything it knows in <code>.git/</code></li>
+            <li>The folder is hidden: see it with <code>ls -a</code></li>
+            <li>Delete <code>.git/</code> and the local history is gone</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- git init -->
+      <section class="slide">
+        <p class="eyebrow">Repositories</p>
+        <h2><code>git init</code></h2>
+        <p class="lead">Turns a folder into a repository.</p>
+        <pre class="term">
+<span class="p">$</span> mkdir my-project
+<span class="p">$</span> cd my-project
+<span class="p">$</span> git init
+<span class="c">Initialized empty Git repository in /home/johndoe/my-project/.git/</span></pre>
+        <ul class="points compact">
+          <li>Run it <strong>once</strong> per project</li>
+          <li>It works in an existing folder too, and does not change your files</li>
+          <li>Do not run it in your home folder</li>
+        </ul>
+      </section>
+
+      <!-- Three areas -->
+      <section class="slide">
+        <p class="eyebrow">Saving changes</p>
+        <h2>How a change gets saved</h2>
+        <div class="flow">
+          <div class="step">
+            <h3>Working directory</h3>
+            <p>The files you are editing</p>
+          </div>
+          <div class="arrow">→<small>git add</small></div>
+          <div class="step">
+            <h3>Staging area</h3>
+            <p>Changes picked for the next commit</p>
+          </div>
+          <div class="arrow">→<small>git commit</small></div>
+          <div class="step">
+            <h3>Repository</h3>
+            <p>Saved history</p>
+          </div>
+        </div>
+        <p class="note">We will look deeper at these three areas in Module 03.</p>
+      </section>
+
+      <!-- git status -->
+      <section class="slide">
+        <p class="eyebrow">Saving changes</p>
+        <h2><code>git status</code></h2>
+        <pre class="term">
+<span class="p">$</span> echo "# My project" &gt; README.md
+<span class="p">$</span> git status
+<span class="c">On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)</span></pre>
+        <p class="note">
+          Shows what has changed and what is staged. It changes none of your
+          files, so run it often.
+        </p>
+      </section>
+
+      <!-- File states -->
+      <section class="slide">
+        <p class="eyebrow">Saving changes</p>
+        <h2>States of a file</h2>
+        <table class="spec">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Untracked</th>
+              <td>New file that Git is not following yet</td>
+            </tr>
+            <tr>
+              <th>Modified</th>
+              <td>Tracked file with changes that are not staged</td>
+            </tr>
+            <tr>
+              <th>Staged</th>
+              <td>Change marked to go into the next commit</td>
+            </tr>
+            <tr>
+              <th>Unmodified</th>
+              <td>Tracked file with nothing new since the last commit</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          Short view: <code>git status -s</code> shows <code>??</code> for
+          untracked and <code>M</code> for modified.
+        </p>
+      </section>
+
+      <!-- git add -->
+      <section class="slide">
+        <p class="eyebrow">Saving changes</p>
+        <h2><code>git add</code></h2>
+        <p class="lead">Stages changes for the next commit.</p>
+        <pre class="term">
+<span class="p">$</span> git add README.md           <span class="c"># one file</span>
+<span class="p">$</span> git add index.html app.js   <span class="c"># several files</span>
+<span class="p">$</span> git add .                   <span class="c"># everything in this folder and below</span></pre>
+        <ul class="points compact">
+          <li>You choose what goes into each commit</li>
+          <li>If you edit a file after adding it, <strong>add it again</strong></li>
+          <li>Check <code>git status</code> before using <code>git add .</code>, so no passwords or junk files slip in</li>
+        </ul>
+      </section>
+
+      <!-- git commit -->
+      <section class="slide">
+        <p class="eyebrow">Saving changes</p>
+        <h2><code>git commit</code></h2>
+        <p class="lead">Saves the staged changes as a snapshot in history.</p>
+        <pre class="term">
+<span class="p">$</span> git commit -m "Add README"
+<span class="c">[main (root-commit) 0ad094b] Add README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md</span></pre>
+        <ul class="points compact">
+          <li>Each commit has an <strong>ID</strong>, author, date and message</li>
+          <li>Only staged changes are included</li>
+          <li>Without <code>-m</code>, Git opens a text editor for the message</li>
+        </ul>
+      </section>
+
+      <!-- Commit messages -->
+      <section class="slide">
+        <p class="eyebrow">Commit messages</p>
+        <h2>Why messages matter</h2>
+        <p class="lead">A message tells your team, and future you, what changed and why.</p>
+        <table class="spec">
+          <thead>
+            <tr>
+              <th>Unclear</th>
+              <th>Clear</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>update</code></td>
+              <td><code>Add installation steps to README</code></td>
+            </tr>
+            <tr>
+              <td><code>fix</code></td>
+              <td><code>Fix crash when email field is empty</code></td>
+            </tr>
+            <tr>
+              <td><code>changes</code></td>
+              <td><code>Remove unused logo images</code></td>
+            </tr>
+            <tr>
+              <td><code>asdfgh</code></td>
+              <td><code>Rename config file to settings.json</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Fixing commits -->
+      <section class="slide">
+        <p class="eyebrow">Fixing commits</p>
+        <h2>Rewrite or undo a commit</h2>
+        <p class="lead">For your latest commit.</p>
+        <pre class="term">
+<span class="c"># rewrite the message</span>
+<span class="p">$</span> git commit --amend -m "Add notes file"
+
+<span class="c"># undo the commit, keep the changes staged</span>
+<span class="p">$</span> git reset --soft HEAD~1</pre>
+        <ul class="points compact">
+          <li>
+            <code>--amend</code> also adds anything <strong>staged</strong> to
+            that commit
+          </li>
+          <li>
+            <code>HEAD~1</code> means one commit back, so there must be an
+            earlier commit
+          </li>
+          <li>
+            Both change history, so use them only on commits you have
+            <strong>not pushed</strong>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Good messages -->
+      <section class="slide">
+        <p class="eyebrow">Commit messages</p>
+        <h2>Writing a good message</h2>
+        <div class="split">
+          <ul class="points compact">
+            <li>Keep the first line short, about <strong>50 characters</strong></li>
+            <li>Start with a verb: <em>Add</em>, <em>Fix</em>, <em>Remove</em></li>
+            <li>Add a blank line, then explain <strong>why</strong> if needed</li>
+            <li>One commit, one logical change</li>
+          </ul>
+          <pre class="term">
+Fix login button on mobile
+
+The button was hidden behind
+the footer on small screens.</pre>
+        </div>
+        <p class="note">Tip: complete the sentence "If applied, this commit will …"</p>
+      </section>
+
+      <!-- git rm -->
+      <section class="slide">
+        <p class="eyebrow">Managing files</p>
+        <h2><code>git rm</code></h2>
+        <p class="lead">Removes a file and stages the removal.</p>
+        <pre class="term">
+<span class="p">$</span> git rm notes.txt
+<span class="c">rm 'notes.txt'</span>
+<span class="p">$</span> git commit -m "Remove notes"</pre>
+        <table class="spec">
+          <thead>
+            <tr>
+              <th>Command</th>
+              <th>File on your disk</th>
+              <th>Tracked by Git</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><code>git rm file</code></th>
+              <td>Deleted</td>
+              <td>No, after commit</td>
+            </tr>
+            <tr>
+              <th><code>git rm --cached file</code></th>
+              <td>Kept</td>
+              <td>No, after commit</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Earlier commits still contain the file. Removing it does not erase a leaked password.</p>
+      </section>
+
+      <!-- git mv -->
+      <section class="slide">
+        <p class="eyebrow">Managing files</p>
+        <h2><code>git mv</code></h2>
+        <p class="lead">Renames or moves a file and stages the change.</p>
+        <pre class="term">
+<span class="p">$</span> git mv notes.txt todo.txt
+<span class="p">$</span> git status
+<span class="c">On branch main
+Changes to be committed:
+  (use "git restore --staged &lt;file&gt;..." to unstage)
+	renamed:    notes.txt -&gt; todo.txt</span>
+<span class="p">$</span> git commit -m "Rename notes to todo"</pre>
+        <p class="note">
+          It does the same job as <code>mv</code>, then
+          <code>git rm</code> on the old name and <code>git add</code> on the
+          new one.
+        </p>
+      </section>
+
+      <!-- Practice -->
+      <section class="slide">
+        <p class="eyebrow">Practice</p>
+        <h2>Your turn</h2>
+        <ol class="timeline">
+          <li>
+            <strong>Set up</strong
+            ><span>Check the version, then set your name and email</span>
+          </li>
+          <li>
+            <strong>Start</strong
+            ><span>Create a folder and run <code>git init</code></span>
+          </li>
+          <li>
+            <strong>Commit</strong
+            ><span>Add a README and a notes file, in two separate commits</span>
+          </li>
+          <li>
+            <strong>Change</strong
+            ><span>Rename the notes file, commit, then remove it and commit</span>
+          </li>
+        </ol>
+        <p class="note">Run <code>git status</code> between every step and read what it says.</p>
+      </section>
+
+      <!-- Recap -->
+      <section class="slide">
+        <p class="eyebrow">Recap</p>
+        <h2>Key takeaways</h2>
+        <ul class="points compact">
+          <li><code>git config</code> sets who you are; <code>git init</code> creates a repository</li>
+          <li>Edit, then <code>git add</code>, then <code>git commit</code></li>
+          <li><code>git status</code> shows where you are</li>
+          <li><code>git rm</code> and <code>git mv</code> remove and rename tracked files</li>
+          <li><strong>Next:</strong> Module 03, Understanding Git internals</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="hud">
+      <button id="prev" aria-label="Previous slide">←</button>
+      <span id="count">1 / 1</span>
+      <button id="next" aria-label="Next slide">→</button>
+    </footer>
+
+    <script src="../../shared/deck.js"></script>
+  </body>
+</html>

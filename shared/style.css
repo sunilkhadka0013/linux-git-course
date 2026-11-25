@@ -298,3 +298,12 @@ code {
 
 .split .head { display: flex; align-items: center; gap: .8rem; margin-bottom: .8rem; }
 .split .head h3 { margin: 0; }
+
+/* Install list: platform name, then its link or command */
+.install li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; align-items: baseline; }
+.install code { justify-self: start; }
+.install a { color: var(--accent); text-underline-offset: .2em; justify-self: start; }
+@media (max-width: 520px) { .install li { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* Caption under a terminal box in a column */
+.split .term + .note { margin-top: .7rem; }
