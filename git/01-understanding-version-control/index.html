@@ -8,13 +8,16 @@
   </head>
   <body>
     <div class="progress"><div class="progress-bar" id="bar"></div></div>
+    <a class="deck-back" href="../">← Back to modules</a>
 
     <main class="deck" id="deck">
       <!-- Title -->
       <section class="slide title-slide">
         <p class="eyebrow">Git · Module 01</p>
         <h1>Understanding <span class="accent">version control</span></h1>
-        <p class="lead">Why every project needs a history, and where Git fits in.</p>
+        <p class="lead">
+          Why every project needs a history, and where Git fits in.
+        </p>
         <p class="hint">Press <kbd>→</kbd> to begin</p>
       </section>
 
@@ -25,8 +28,12 @@
         <p class="lead">A system that records changes to files over time.</p>
         <ul class="points">
           <li><strong>Remembers</strong> every change, who made it and when</li>
-          <li><strong>Restores</strong> any earlier version when you need it</li>
-          <li><strong>Compares</strong> two versions to see exactly what changed</li>
+          <li>
+            <strong>Restores</strong> any earlier version when you need it
+          </li>
+          <li>
+            <strong>Compares</strong> two versions to see exactly what changed
+          </li>
         </ul>
       </section>
 
@@ -35,11 +42,13 @@
         <p class="eyebrow">Version control</p>
         <h2>Life without it</h2>
         <div class="split">
-          <pre class="term">report.doc
+          <pre class="term">
+report.doc
 report_final.doc
 report_final_v2.doc
 report_final_v2_REAL.doc
-report_final_v2_REAL_fixed.doc</pre>
+report_final_v2_REAL_fixed.doc</pre
+          >
           <ul class="points compact">
             <li>Which file is the latest?</li>
             <li>What changed between them?</li>
@@ -78,14 +87,32 @@ report_final_v2_REAL_fixed.doc</pre>
         <h2>Problems Git solves</h2>
         <table class="spec">
           <thead>
-            <tr><th>Problem</th><th>How Git helps</th></tr>
+            <tr>
+              <th>Problem</th>
+              <th>How Git helps</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><th>Lost or overwritten work</th><td>Every saved snapshot stays in history</td></tr>
-            <tr><th>"It worked yesterday"</th><td>Compare versions and roll back</td></tr>
-            <tr><th>Two people edit the same file</th><td>Changes are merged, conflicts are flagged</td></tr>
-            <tr><th>Risky new features</th><td>Branches keep experiments separate</td></tr>
-            <tr><th>Working offline</th><td>Full history lives on your computer</td></tr>
+            <tr>
+              <th>Lost or overwritten work</th>
+              <td>Every saved snapshot stays in history</td>
+            </tr>
+            <tr>
+              <th>"It worked yesterday"</th>
+              <td>Compare versions and roll back</td>
+            </tr>
+            <tr>
+              <th>Two people edit the same file</th>
+              <td>Changes are merged, conflicts are flagged</td>
+            </tr>
+            <tr>
+              <th>Risky new features</th>
+              <td>Branches keep experiments separate</td>
+            </tr>
+            <tr>
+              <th>Working offline</th>
+              <td>Full history lives on your computer</td>
+            </tr>
           </tbody>
         </table>
       </section>
@@ -97,12 +124,19 @@ report_final_v2_REAL_fixed.doc</pre>
         <div class="split">
           <ul class="points">
             <li>A free, open-source version control system</li>
-            <li>Created by <strong>Linus Torvalds</strong> in 2005 for the Linux kernel</li>
+            <li>
+              Created by <strong>Linus Torvalds</strong> in 2005 for the Linux
+              kernel
+            </li>
             <li>Runs locally, with no server required</li>
             <li>Fast, and built to handle huge projects</li>
           </ul>
           <div>
-            <img src="../../shared/assets/git.svg" alt="Git logo" style="width:8rem;height:8rem" />
+            <img
+              src="../../shared/assets/git.svg"
+              alt="Git logo"
+              style="width: 8rem; height: 8rem"
+            />
           </div>
         </div>
       </section>
@@ -114,7 +148,11 @@ report_final_v2_REAL_fixed.doc</pre>
         <div class="split">
           <div>
             <div class="head">
-              <img src="../../shared/assets/git.svg" alt="Git logo" style="width:3rem;height:3rem" />
+              <img
+                src="../../shared/assets/git.svg"
+                alt="Git logo"
+                style="width: 3rem; height: 3rem"
+              />
               <h3>Git</h3>
             </div>
             <ul class="points compact">
@@ -125,7 +163,11 @@ report_final_v2_REAL_fixed.doc</pre>
           </div>
           <div>
             <div class="head">
-              <img src="../../shared/assets/github.svg" alt="GitHub logo" style="width:3rem;height:3rem" />
+              <img
+                src="../../shared/assets/github.svg"
+                alt="GitHub logo"
+                style="width: 3rem; height: 3rem"
+              />
               <h3>GitHub</h3>
             </div>
             <ul class="points compact">
@@ -135,7 +177,9 @@ report_final_v2_REAL_fixed.doc</pre>
             </ul>
           </div>
         </div>
-        <p class="note">Git is the tool. GitHub is a place to put what the tool tracks.</p>
+        <p class="note">
+          Git is the tool. GitHub is a place to put what the tool tracks.
+        </p>
       </section>
 
       <!-- Centralized -->
@@ -176,7 +220,9 @@ report_final_v2_REAL_fixed.doc</pre>
         </div>
         <ul class="points compact">
           <li>Examples: Git, Mercurial</li>
-          <li>Work and commit offline; a lost copy can be restored from any other</li>
+          <li>
+            Work and commit offline; a lost copy can be restored from any other
+          </li>
         </ul>
       </section>
 
@@ -186,14 +232,38 @@ report_final_v2_REAL_fixed.doc</pre>
         <h2>Centralized vs distributed</h2>
         <table class="spec">
           <thead>
-            <tr><th></th><th>Centralized</th><th>Distributed</th></tr>
+            <tr>
+              <th></th>
+              <th>Centralized</th>
+              <th>Distributed</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><th>History lives</th><td>On one server</td><td>On every computer</td></tr>
-            <tr><th>Offline work</th><td>Limited</td><td>Full</td></tr>
-            <tr><th>Single point of failure</th><td>Yes</td><td>No</td></tr>
-            <tr><th>Speed</th><td>Network for most actions</td><td>Most actions are local</td></tr>
-            <tr><th>Example</th><td>SVN</td><td>Git</td></tr>
+            <tr>
+              <th>History lives</th>
+              <td>On one server</td>
+              <td>On every computer</td>
+            </tr>
+            <tr>
+              <th>Offline work</th>
+              <td>Limited</td>
+              <td>Full</td>
+            </tr>
+            <tr>
+              <th>Single point of failure</th>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td>Network for most actions</td>
+              <td>Most actions are local</td>
+            </tr>
+            <tr>
+              <th>Example</th>
+              <td>SVN</td>
+              <td>Git</td>
+            </tr>
           </tbody>
         </table>
       </section>

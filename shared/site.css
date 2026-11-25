@@ -20,3 +20,21 @@ h1 { font-family: var(--serif); font-size: clamp(2rem, 6vw, 3.2rem); line-height
 .list a.disabled { opacity: .5; pointer-events: none; cursor: default; }
 .list.grid { grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
 .list .num { color: var(--accent); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .35rem; }
+
+/* Status icons, top right of each card.
+   .disabled = lock, .unlocked = open lock, .done = adds a green check. */
+.list a { position: relative; height: 100%; padding-right: 4.5rem; }
+.list a.disabled::after, .list a.unlocked::after, .list a.done::before {
+  content: ""; position: absolute; top: 1.25rem; right: 1.25rem;
+  width: 1.15rem; height: 1.15rem;
+  background: var(--muted);
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.list a.disabled::after { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E"); }
+.list a.unlocked::after { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 7.75-1.4'/%3E%3C/svg%3E"); }
+.list a.done::before {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm5.7 8.2-6.8 7a1 1 0 0 1-1.42.02l-3.2-3.1 1.4-1.44 2.48 2.4 6.1-6.28z'/%3E%3C/svg%3E");
+  background: #2e7d4f;
+  right: 2.9rem;
+}
