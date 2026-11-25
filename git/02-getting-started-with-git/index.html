@@ -387,6 +387,78 @@ the footer on small screens.</pre>
         <p class="note">Tip: complete the sentence "If applied, this commit will …"</p>
       </section>
 
+      <!-- Commit message styles -->
+      <section class="slide">
+        <p class="eyebrow">Commit messages</p>
+        <h2>Commit message styles</h2>
+        <table class="spec tight">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Use it for</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="key">
+              <th><code>feat:</code></th>
+              <td>A new feature</td>
+              <td><code>feat: add login page</code></td>
+            </tr>
+            <tr class="key">
+              <th><code>fix:</code></th>
+              <td>A bug fix</td>
+              <td><code>fix: stop crash on empty email</code></td>
+            </tr>
+            <tr class="key">
+              <th><code>docs:</code></th>
+              <td>Documentation only</td>
+              <td><code>docs: add setup steps to README</code></td>
+            </tr>
+            <tr class="key">
+              <th><code>refactor:</code></th>
+              <td>Restructure code, same behaviour</td>
+              <td><code>refactor: split user form into parts</code></td>
+            </tr>
+            <tr class="key">
+              <th><code>chore:</code></th>
+              <td>Other upkeep</td>
+              <td><code>chore: remove unused files</code></td>
+            </tr>
+            <tr>
+              <th><code>style:</code></th>
+              <td>Formatting, no logic change</td>
+              <td><code>style: fix indentation in app.js</code></td>
+            </tr>
+            <tr>
+              <th><code>perf:</code></th>
+              <td>Make it faster</td>
+              <td><code>perf: cache product list</code></td>
+            </tr>
+            <tr>
+              <th><code>test:</code></th>
+              <td>Add or update tests</td>
+              <td><code>test: add tests for login form</code></td>
+            </tr>
+            <tr>
+              <th><code>build:</code></th>
+              <td>Build system or dependencies</td>
+              <td><code>build: upgrade React to version 19</code></td>
+            </tr>
+            <tr>
+              <th><code>ci:</code></th>
+              <td>Automation pipeline settings</td>
+              <td><code>ci: run tests on every push</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">
+          <strong>Focus on the five highlighted types.</strong> The others are
+          optional. Format: <code>type: short description</code>, known as
+          Conventional Commits.
+        </p>
+      </section>
+
       <!-- git rm -->
       <section class="slide">
         <p class="eyebrow">Managing files</p>
@@ -440,6 +512,23 @@ Changes to be committed:
         </p>
       </section>
 
+      <!-- git push -->
+      <section class="slide">
+        <p class="eyebrow">Sharing changes</p>
+        <h2><code>git push</code></h2>
+        <p class="lead">Uploads your commits to GitHub.</p>
+        <pre class="term">
+<span class="c"># once: connect to an empty repository you created on GitHub</span>
+<span class="p">$</span> git remote add origin https://github.com/&lt;username&gt;/my-project.git
+<span class="c"># send your commits</span>
+<span class="p">$</span> git push origin main</pre>
+        <ul class="points compact">
+          <li><code>origin</code> is the usual name for your remote repository</li>
+          <li>Only <strong>committed</strong> changes are pushed</li>
+          <li>Signing in to GitHub is covered in Module 04</li>
+        </ul>
+      </section>
+
       <!-- Practice -->
       <section class="slide">
         <p class="eyebrow">Practice</p>
@@ -477,6 +566,38 @@ Changes to be committed:
           <li><strong>Next:</strong> Module 03, Understanding Git internals</li>
         </ul>
       </section>
+      <!-- Everyday workflow -->
+      <section class="slide">
+        <p class="eyebrow">Putting it together</p>
+        <h2>The usual workflow</h2>
+        <div class="split">
+          <div>
+            <h3>Once per project</h3>
+            <pre class="term">
+<span class="p">$</span> git init
+<span class="p">$</span> git remote add origin &lt;url&gt;</pre>
+          </div>
+          <div>
+            <h3>Repeat as you work</h3>
+            <pre class="term">
+<span class="p">$</span> git status
+<span class="p">$</span> git add .
+<span class="p">$</span> git commit -m "commit message"
+<span class="p">$</span> git push origin &lt;branch-name&gt;</pre>
+          </div>
+        </div>
+        <ol class="timeline">
+          <li>
+            <strong>Check and stage</strong
+            ><span>See what changed, then choose what to save</span>
+          </li>
+          <li>
+            <strong>Commit and push</strong
+            ><span>Save it in history, then upload it</span>
+          </li>
+        </ol>
+      </section>
+
     </main>
 
     <footer class="hud">

@@ -307,3 +307,14 @@ code {
 
 /* Caption under a terminal box in a column */
 .split .term + .note { margin-top: .7rem; }
+
+/* Long tables: shorter rows so they fit on one slide */
+.spec.tight th, .spec.tight td { padding-top: .28rem; padding-bottom: .28rem; }
+.spec.tight tbody th { font-size: 1em; }
+
+/* Highlighted rows matter most; the rest of that table is optional */
+.spec tr.key th, .spec tr.key td { background: #f3e3d8; }
+.spec tr.key th { color: var(--accent); box-shadow: inset 3px 0 var(--accent); padding-left: .8rem; }
+.spec tr.key code { background: transparent; }
+.spec.tight tbody tr:not(.key) th, .spec.tight tbody tr:not(.key) td { color: var(--muted); }
+.spec.tight tbody th { padding-left: .8rem; }
